@@ -1,0 +1,17 @@
+{
+  "max_limit_reached": "Max karakterlimiet bereikt!",
+  "next": "Volgende",
+  "previous": "Vorige",
+  "results": "resultaten",
+  "search_input": {
+    "placeholder": "Zoeken..."
+  },
+  "select": {
+    "deselect_all": "Deselecteer alles",
+    "items_selected": "{{value}} van {{max}} geselecteerd",
+    "nothing_selected": "Niets geselecteerd",
+    "select_all": "Selecteer alles"
+  },
+  "show": "Toon",
+  "test": "Hallo"
+}

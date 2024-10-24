@@ -1,0 +1,173 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "filenames"],
+
+  "ignorePatterns": ["**/node_modules/**", "**/dist/", "vite.config.ts", "*.cjs"],
+  "rules": {
+    // See documentation about our code-style guide:
+    // https://www.notion.so/theoracle/How-to-Write-code-a455433be72b43e991a2bd145bb2a7fc
+
+    // No export default, named exports only
+    "import/no-default-export": "error",
+    "import/no-named-as-default": "error",
+
+    // This rule screams at our alias @ syntax
+    "import/no-unresolved": "off",
+
+    // No duplicate imports
+    "import/no-duplicates": "error",
+
+    // Enforce the use of '===' instead of '=='.
+    "eqeqeq": "error",
+
+    // Only use const and let for variables.
+    "no-var": "error",
+
+    // Where possible prefer the use of the 'function' keyword over arrow functions.
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+
+    // It's possible to use the console to log things but it shouldn't happen in production.
+    "no-console": "warn",
+
+    // Don't leave variables unattended.
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+
+    // We use require in some .cjs files (CommonJS).
+    "@typescript-eslint/no-var-requires": "off",
+
+    // Prefer the dot notation over the bracket notation.
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": "error",
+
+    // Make sure that the types are given in the variable, not in the constructor when creating an instance of a class with a generic type.
+    "@typescript-eslint/consistent-generic-constructors": ["error", "type-annotation"],
+
+    // Make type imports consistent with explicit 'type' keyword to prevent problems like type-only imports being incorrectly bundled.
+    "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+
+    // Make type exports consistent with explicit 'type' keyword to be inline with the type imports.
+    "@typescript-eslint/consistent-type-exports": ["error"],
+
+    // If a function is part of an interface declare it as a property.
+    // For example in the Props interface of a Preact component how we declare a 'onSomething' handler.
+    "@typescript-eslint/method-signature-style": ["error", "property"],
+
+    // Have consistency for array types. We want to define arrays as Array<T> instead of T[].
+    "@typescript-eslint/array-type": ["error", { "default": "generic" }],
+
+    // Mark functions that return promises as async so it's clear that it is an async function.
+    "@typescript-eslint/promise-function-async": "error",
+
+    // Specific naming conventions for variables, classes, functions, etc.
+    // See single and group selectors here: https://typescript-eslint.io/rules/naming-convention/#allowed-selectors-modifiers-and-types
+    // See documentation about our naming conventions: https://www.notion.so/theoracle/How-to-Write-code-a455433be72b43e991a2bd145bb2a7fc#6760eaeb981d4b1ca35859e9ba72d68c
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["strictCamelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "import",
+        "format": ["camelCase", "PascalCase"]
+      },
+      // Use verb prefix for booleans in variables, function parameters and interfaces/types.
+      // https://en.wikipedia.org/wiki/Auxiliary_verb#List_of_auxiliaries_in_English
+      {
+        "selector": ["variable", "parameter", "typeProperty"],
+        "types": ["boolean"],
+        "format": ["StrictPascalCase", "UPPER_CASE"],
+        "prefix": [
+          "is",
+          "should",
+          "has",
+          "can",
+          "does",
+          "did",
+          "will",
+          "IS_",
+          "SHOULD_",
+          "HAS_",
+          "CAN_",
+          "DOES_",
+          "DID_",
+          "WILL_"
+        ]
+      },
+      {
+        "selector": "function",
+        "format": ["strictCamelCase", "StrictPascalCase"]
+      },
+      // Allow snake_case for properties we get from APIs.
+      {
+        "selector": "parameter",
+        "format": ["strictCamelCase", "snake_case"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": ["strictCamelCase", "snake_case", "UPPER_CASE"]
+      },
+      // Ignore specific properties as they come from somewhere else that we don't have control over.
+      {
+        "selector": "property",
+        "filter": "^(VoIPGRID|Prefer)$",
+        "format": null
+      },
+      // Ignore format when the object property is in quotes, for example when
+      // the name of the property is kebab-case the property needs to be in quotes.
+      {
+        "selector": "objectLiteralProperty",
+        "modifiers": ["requiresQuotes"],
+        "format": null
+      },
+      {
+        "selector": "typeLike",
+        "format": ["StrictPascalCase"]
+      },
+      // TypeScript interfaces should not start with an I.
+      {
+        "selector": "interface",
+        "format": ["StrictPascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": false
+        }
+      },
+      // TypeScript generic types should end with T.
+      {
+        "selector": "typeParameter",
+        "format": ["StrictPascalCase"],
+        "suffix": ["T"]
+      }
+    ],
+
+    // The default export should match the file name.
+    // The name exports must be camel or pascal case.
+    "filenames/match-exported": ["error", ["camel", "pascal"], null, true]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "max_limit_reached": "La limite maximale de caractères est atteinte !",
+  "next": "Suivant",
+  "previous": "Précédent",
+  "results": "résultats",
+  "search_input": {
+    "placeholder": "Chercher..."
+  },
+  "select": {
+    "deselect_all": "Tout déselectionner",
+    "items_selected": "{{value}} sur {{max}} sélectionné",
+    "nothing_selected": "Rien de sélectionné",
+    "select_all": "Tout sélectionner"
+  },
+  "show": "Montrer",
+  "test": "Bonjour"
+}

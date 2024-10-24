@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "strict": true,
+
+    // This will enable Node and browser built-ins.
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // Allow import of JSON files in TypeScript files.
+    // Esbuild supports this by default.
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Esbuild TypeScript caveats.
+    // https://esbuild.github.io/content-types/#typescript-caveats
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": false,
+
+    // TypeScript settings for Preact.
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+
+    // Make sure VSCode imports types with the type keyword.
+    "verbatimModuleSyntax": true,
+
+    // To make the application compile, we need to disable type checking on node_modules like this.
+    // This way, defined alias' will work properly when libraries import React.
+    "skipLibCheck": true,
+
+    // Path aliases.
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/", "src/locales/*.json"]
+}

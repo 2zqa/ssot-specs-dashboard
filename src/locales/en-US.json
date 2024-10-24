@@ -1,0 +1,17 @@
+{
+  "max_limit_reached": "Max character limit reached! ",
+  "next": "Next",
+  "previous": "Previous",
+  "results": "results",
+  "search_input": {
+    "placeholder": "Search..."
+  },
+  "select": {
+    "deselect_all": "Deselect all",
+    "items_selected": "{{value}} of {{max}} selected",
+    "nothing_selected": "Nothing selected",
+    "select_all": "Select all"
+  },
+  "show": "Show",
+  "test": "Hallo"
+}

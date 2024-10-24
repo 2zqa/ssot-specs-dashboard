@@ -1,0 +1,17 @@
+{
+  "max_limit_reached": "Maximale Zeichenanzahl erreicht!",
+  "next": "Nächste",
+  "previous": "Vorherige",
+  "results": "Ergebnisse",
+  "search_input": {
+    "placeholder": "Suche..."
+  },
+  "select": {
+    "deselect_all": "Alle abwählen",
+    "items_selected": "{{value}} von {{max}} ausgewählt",
+    "nothing_selected": "Nichts ausgewählt",
+    "select_all": "Alle auswählen"
+  },
+  "show": "Anzeigen",
+  "test": "Hallo"
+}
